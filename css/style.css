@@ -1,0 +1,508 @@
+
+html {
+    box-sizing: border-box;
+    font-size: 62.5%; /** Reset para REMS - 62.5% = 10px de 16px **/
+}
+*, *:before,*:after{
+	box-sizing: inherit;
+}
+/*Snippet de box sizing para controlar anchos de  elementos inline transformados en inline-block como los botones. No incrementen a pesar del padding*/
+body{
+	font-family: 'Lato', sans-serif;
+	font-size: 1.6rem;
+	line-height: 2;
+	margin: 0 auto;
+}
+
+/**GLOBLES**/
+
+img{
+	max-width: 100%;
+}
+.contenedor {
+	width: 95%;
+	max-width: 120rem;
+	margin: 0 auto;
+}
+
+h1 {
+    font-size: 3.8rem;
+}
+h2 {
+    font-size: 3.4rem;
+}
+h3 {
+    font-size: 3rem;
+}
+h4 {
+    font-size: 2.6rem;
+}
+
+/*Utilidades*/
+.seccion{
+margin-top: 2rem;
+margin-bottom: 2rem;
+}
+.fw-300{
+font-weight: 300;
+}
+.centrar-texto{
+text-align: center;
+}
+.d-block{
+	display: block!important; 
+	/*Da prioridad sobre inline de clase boton en este caso. Rompe el flujo de nodos*/
+}
+
+.contenido-centrado{
+	max-width: 800px;
+
+}
+.texto-justificado{
+	text-align: justify;
+}
+/*BOTONES*/
+.boton{
+color: white;
+font-weight: 700;
+text-decoration: none;
+font-size: 1.8rem;
+padding: 1rem 3rem;
+margin-top: 3rem;
+display: inline-block;
+text-align: center;
+border: none;
+display: block;
+flex: 0 0 100%;
+}
+
+@media (min-width: 768px) {
+ 
+ .boton{
+ 	display: inline-block;
+ 	flex: 0 0 auto;
+ }
+
+}
+.boton:hover{
+	cursor: pointer; /*Cambio por mano al cursor que tiene asignado por default submit (flecha)*/
+}
+/*Los enlaces tienen display:inline por default, para poder asignarles anchos hay que cambiarlo bien sea a block (Toma todo el ancho) ó a inline-block (Permite asignar ancho como en la clase boton)*/
+.boton-naranja{
+background-color: #E08709;
+}
+
+.boton-verde{
+background-color: #71B100;
+}
+/*Header*/
+
+.site-header{
+	background-color: #333333;
+	padding: 1rem 0 3rem 0;
+}
+
+.site-header.inicio{
+
+	background-image: url(../img/header.jpg);
+	background-position: center center;/*muestra imagen desde el centro y la expande*/
+	background-size: cover; /*Forza a la im a tomar todo el espacio disponible pero guardando las proporciones*/
+	height: 100vh; /*(viewport height detecta alto de la pantalla)*/
+	min-height: 60rem; /*Minimo de alto para pantallas muy pequeñas en relacion a la imagen*/
+
+}
+
+
+.contenido-header{
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+.contenido-header{
+	text-align: left;
+}
+
+}
+.contenido-header h1{
+	color: white;
+	padding-bottom: 2rem; 
+	max-width: 60rem;
+	line-height: 2;
+}
+.barra{
+	padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+
+.barra{
+	display: flex;
+	justify-content: space-between;	
+	align-items: center;
+}
+}
+/*NAV*/
+.navegacion a{
+ color: white;
+ text-decoration: none;
+ font-size: 2.4rem;
+ display: block;
+}
+
+@media (min-width: 768px) {
+
+  .navegacion a{
+	display: inline-block;
+	margin-right: 2rem;
+    font-size: 1.8rem;
+  }
+
+   .navegacion a:last-of-type {
+    margin: 0; /*le quita 20px de margen derecho al último enlace (corrge proporción)*/
+  }
+}
+.navegacion a:hover{
+	color: #71B100;
+}
+
+
+/*Iconos Nosotros*/
+
+@media (min-width: 768px) {
+
+.iconos-nosotros{
+ display: flex;
+ justify-content: space-between;
+}
+
+}
+
+.icono{
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+.icono{
+	flex-basis: calc(33.3% - 1rem);/*es como width cuando se usa flexbox, en % por responsive. Acompañado de calc() hace calculo */
+}
+}
+.icono h3{
+	text-transform: uppercase;
+}
+
+/*Anuncios*/
+
+
+@media (min-width: 768px) {
+.contenedor-anuncios{
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;	
+} 
+}
+
+
+.anuncio{
+	border: 1px solid #B5B5B5;
+	background-color: #F5F5F5;
+	margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+.anuncio{
+	flex: 0 0 calc(33.3% - 1rem);/*Shorthand de Flexgrow(crezca el contenido), flexshrink (cont decrece) y flex basis. Tipo Bootstrap*/
+}}
+.contenido-anuncio{
+padding: 1rem;
+}
+
+.contenido-anuncio h3, .contenido-anuncio p{
+	margin: 0;
+}
+
+
+.precio{
+	color: #71B100;
+	font-weight: 700;
+}
+
+.iconos-caracteristicas{
+	list-style: none;
+	padding: 0;
+	display: flex;
+	justify-content: space-around;
+	flex: 1;
+	max-width: 500px;
+}
+
+.iconos-caracteristicas li{
+ display: flex; /*Imagen y texto frente al otro*/
+}
+
+.iconos-caracteristicas li img{
+	margin-right: 2rem;
+}
+.ver-todas{
+	display: flex;
+	justify-content: flex-end;
+}
+
+/*Contacto-Home*/
+
+.imagen-contacto{
+
+	background-image: url(../img/encuentra.jpg);
+	background-position: center center;
+	background-size: cover;
+	height: 40rem;
+	display: flex;
+	align-items: center;
+}
+
+.contenido-contacto{
+    
+    flex: 0 0 95%; /*Factor de Crecimiento. Detecta cuanto tamaño hay disponible y divide entre elementos. Asigna el tamaño conforme a este*/
+    color: #ffffff;
+}
+.contenido-contacto p{
+
+	font-size: 1.8rem;
+}
+/*Seccion Inferior*/
+
+@media (min-width: 768px) {
+  .seccion-inferior{
+	display: flex;
+	justify-content: space-between;	
+   }
+   .seccion-inferior .blog{
+    flex-basis: 60%;
+    }
+
+   .seccion-inferior .testimoniales{
+	flex-basis: calc(40% - 2rem);
+    }
+}
+
+.entrada-blog{
+	margin-bottom: 2rem;
+}
+
+
+@media (min-width: 768px) {
+.entrada-blog{
+	display: flex;
+	justify-content: space-between;
+
+}}
+
+
+.entrada-blog:last-of-type{
+	margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+
+  .entrada-blog .imagen{
+  flex-basis: 40%;
+   }
+
+ .entrada-blog .texto-entrada{
+  flex-basis: calc(60% - 3rem);
+   }
+}
+
+
+
+.texto-entrada a{
+	color: black;
+	text-decoration: none;
+}
+.texto-entrada h4{
+margin: 0;
+line-height: 1.4;
+}
+
+/*::after o ::before, crea pseudoelemento como linea verde en blog, no se pueden seleccionar(al copiar texto) y son invisibles al inseccionar*/
+.texto-entrada h4::after{
+content: '';
+display: block;
+width: 15rem;
+height: .5rem;
+background-color: #71B100; 
+margin-top: 1rem;
+}
+
+.texto-entrada span{
+	color: #E08709;
+}
+/*Testimoniales*/
+
+.testimonial{
+	background-color: #71B100;
+	font-size: 2.4rem;
+	padding: 2rem;
+	color: #ffffff;
+	border-radius: 2rem;
+}
+.testimonial p{
+text-align: right;
+}
+
+/*Comillas como pseudoelemento antes del blockquote*/
+
+.testimonial blockquote::before{
+content: '';
+background-image: url(../img/comilla.svg);
+width: 4rem;
+height: 4rem;
+position: absolute;
+left: -2rem;
+}
+
+/*Position, siempre se usa relative en el padre (para que tome referencia el hijo, no cambia nada) y absolute en el hijo. Posicionar con top, left ,rigth, bottom*/
+
+.testimonial blockquote{
+	position: relative;
+	padding-left: 5rem;
+	font-weight: 300;
+}
+/**Footer**/
+.site-footer{
+	background-color: #333333;
+	margin: 0;
+}
+
+.contenedor-footer{
+	padding: 3rem 0;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+
+   .contenedor-footer{
+
+	display: flex;
+	justify-content: space-between;
+}
+}
+
+.site-footer nav{ /*Oculta el nav del footer en mobile*/ 
+	display: none;
+}
+
+@media (min-width: 768px) {
+
+.site-footer nav{
+	display: block;
+}
+}
+
+.copyright{
+	margin: 0;
+	color: white;
+}
+
+
+/***Págnas internas***/
+
+/**Nosotros**/
+
+
+@media (min-width: 768px) {
+/*CSS Grid, funciona como columnas*/
+.contenido-nosotros{
+	display: grid;
+	grid-template-columns: 50% 50%; /*Cuanto cada columna*/
+	grid-column-gap: 2rem; /*Espaco entre elementos*/
+}
+
+}
+
+.texto-nosotros p{
+	text-align: justify;
+}
+
+.texto-nosotros blockquote{
+	font-weight: 900;
+	font-size: 2rem;
+	margin: 0;
+	padding: 3rem 0;
+	text-align: center;
+}
+
+@media (min-width: 768px) {
+.texto-nosotros blockquote{
+	text-align: left;
+}}
+
+/**Anuncio**/
+.resumen-propiedad{
+	display: flex;
+	justify-content: space-between; /*Alinea horizontalmente*/
+	align-items: center;/*Alinea vertcalmente*/
+}
+
+/**Contacto**/
+
+form p{
+	font-size: 1.4rem;
+	color: #4f4f4f;
+	margin: 2rem 0 0 0 ; 
+
+}
+legend{
+	font-size: 2rem;
+	color: #4f4f4f;
+}
+
+label{
+	font-weight: 700;
+	display: block;
+}
+.checkbox{
+	max-width: 450px;
+	display: flex;
+	justify-content: space-between;
+
+}
+
+.checkbox label{
+	text-align: left;
+}
+input:not([type="submit"]),
+textarea,
+select{
+
+	padding: 1rem;
+	display: block;
+	width: 100%;
+	background-color: #e1e1e1;
+	margin-bottom: 2rem;
+	border: none;
+	border-radius: 1rem;
+
+}
+input[type="radio"]{
+	width: auto;
+}
+input[type="checkbox"]{
+	width: auto;
+	margin-top: 8px;
+
+}
+select{
+	-webkit-appearance:none;
+	appearance:none;
+}
+
+.forma-contacto{
+
+max-width: 600px;
+display: flex;
+justify-content: space-between;
+}
